@@ -5,7 +5,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true}));
 
 const porta = 3000;
-const host = '0.0.0.0';
+const host = 'localhost';
 
 var listar = [];
 
@@ -15,18 +15,27 @@ function cadastroView(req, resp)
         <html>
                 <head>
                     <title>Cadastro Simples</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                    <style>
+                        .container {
+                        max-width: 700px;
+                        margin: 0 auto;
+                        background-color: white;
+                        margin-top: 50px;
+                    }
+                    </style>
+                   
                 </head>
                 <body>
+                <div class="container">
                     <label for="nome">Nome Completo:</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome" size="20">
                     <label for="data">Data de Nascimento:</label>
-                    <input type="date" id="data" name="data" size="20">
+                    <input type="date" id="dataNasc" name="data" size="20">
                     <br>
                     <br>
                     <label for="endereco">Endereço:</label>
                     <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" size="40">
-                    <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="8" size="20">
                     <br>
                     <br>
                     <label for="email">E-mail:</label>
@@ -78,12 +87,14 @@ function cadastroView(req, resp)
                     </select>
                     <br>
                     <br>
-                    <label for="salvar">Salvar Dados</label>
-                    <input type="submit" id="salvar" name="salvar" value="Salvar dados">
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                    </div>
                 </form>
-                
+                </div>
             </body>
-
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        </html>
         `);
 }
 function menuView(req, resp){
@@ -120,9 +131,8 @@ function cadastrar(req, resp){
     const cidade    = req.body.cidade;
     const estado    = req.body.estado;
 
-    const aluno = {nome, dataNasc, endereco, email, sexo, cidade, estado};
+    const pessoa = {nome, dataNasc, endereco, email, sexo, cidade, estado};
 
-    //adicionar o aluno na lista
     listar.push(pessoa);
 
     //mostrar a lista de alunos já cadastrados
