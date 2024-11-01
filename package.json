@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Densenvolvimento da Atividade 2 - Formulario",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jhennifer-lincoln/Atividade2/issues"
   },
-  "homepage": "https://github.com/jhennifer-lincoln/Atividade2#readme"
+  "homepage": "https://github.com/jhennifer-lincoln/Atividade2#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
 }
